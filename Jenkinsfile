@@ -7,6 +7,9 @@ pipeline {
             }
         }
         stage('Test') {
+        when {
+                branch 'development' 
+            }
 	steps {
                 sh './jenkins/scripts/deliver-for-development.sh'
             }
