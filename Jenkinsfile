@@ -1,6 +1,12 @@
 pipeline {
     agent any
     stages {
+	stage('init') {
+            steps {
+                sh 'echo "hello teja for development" '
+            }
+        }    
+	
         stage('Build') {
             steps {
                 sh 'npm install'
