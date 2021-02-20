@@ -3,8 +3,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo "Hello world!"'
+                sh 'npm install'
             }
         }
+        stage('Test') {
+        when {
+                branch 'production' 
+            }
+	steps {
+                sh './jenkins/scripts/deploy-for-production.sh'
+            }
+	}
     }
+  
 }
